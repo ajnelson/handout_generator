@@ -1,7 +1,7 @@
 #!/usr/bin/make -f
 
 DEBUG_FLAG ?=
-PYTHON3 ?= python3.4
+PYTHON ?= python3.4
 
 all: demo
 	@echo
@@ -16,7 +16,7 @@ clean:
 	rm -f *.aux *.log *.pdf *.tex
 
 demo: populate_from_tsv.py populate.py template.tex.in students.tsv
-	$(PYTHON3) populate_from_tsv.py $(DEBUG_FLAG) template.tex.in students.tsv
+	$(PYTHON) populate_from_tsv.py $(DEBUG_FLAG) template.tex.in students.tsv
 
 %.pdf: %.tex
 	pdflatex $$(basename $@ .pdf)
@@ -25,10 +25,10 @@ demo: populate_from_tsv.py populate.py template.tex.in students.tsv
 
 test_1_arg.tex: populate.py template.tex.in
 	rm -f _$@
-	$(PYTHON3) populate.py template.tex.in _$@ 42
+	$(PYTHON) populate.py template.tex.in _$@ 42
 	mv _$@ $@
 
 test_2_arg.tex: populate.py template.tex.in
 	rm -f _$@
-	$(PYTHON3) populate.py template.tex.in _$@ 84 99
+	$(PYTHON) populate.py template.tex.in _$@ 84 99
 	mv _$@ $@

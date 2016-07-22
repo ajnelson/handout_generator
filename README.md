@@ -12,8 +12,19 @@ The Latex template file (e.g. `template.tex.in` in this directory) should be nor
 [BSD 2-clause](https://opensource.org/licenses/BSD-2-Clause).
 
 
+## Setup
+
+Expected environment:  macOS or Linux, Python (either version 2 or 3) installed, and command-line Latex available.  It may work in Windows, but has not been tested.
+
+`make` is only necessary if you want to run the demo below.
+
+
 ## Usage
 
-To see everything in action, run `make`.  You may need to supply a path to a Python executable, e.g. `make PYTHON3=/opt/local/bin/python3.5`.
+Example call:
+
+    python populate_from_tsv.py template.tex.in students.tsv
+
+To see everything in action, you can run `make`.  You may need to supply a path to a Python executable, e.g. `make PYTHON=/opt/local/bin/python3.5`.  Either Python 2 or 3 should work.
 
 If you'd like to run things with debugging enabled, add `DEBUG_FLAG=--debug` to your `make` call.
